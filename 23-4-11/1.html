@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>211曹传宽03</title>
+    <script src="jquery-3.6.0.js"></script>
+</head>
+<body>
+    <input class="in1" type="text">
+    <input class="bt1" type="button" value="add">
+    <input class="bt2" type="button" value="read">
+    <input class="bt3" type="button" value="remove">
+    <input class="bt4" type="button" value="clear">
+    <script>
+        var num = localStorage.getItem("num");
+        $(".bt1").on("click",function(){
+            console.log($(".in1").val());
+            num++;
+            localStorage.setItem("in"+num,$(".in1").val());
+            localStorage.setItem("num",num);
+        });
+        $(".bt2").on("click",function(){
+            $(".in1").val(localStorage.getItem("in"+num));
+        });
+        $(".bt3").on("click",function(){
+            localStorage.removeItem("in"+num);
+            num--;
+            localStorage.setItem("num",num);
+        });
+        $(".bt4").on("click",function(){
+            localStorage.clear();
+        });
+    </script>
+</body>
+</html>
